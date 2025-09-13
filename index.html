@@ -5,29 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>Flowers</title>
+    <title>Para Ti</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
         
         * {
             font-family: 'Poppins', cursive;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             color: azure;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background: linear-gradient(to bottom, #000000, #0a1435, #000000);
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
-            margin: 0;
-            padding: 0;
+            padding: 20px;
         }
         
         /* Capa de estrellas */
@@ -101,142 +102,205 @@
             position: relative;
             z-index: 1;
             text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
         }
-        
-        .button {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.botones {
-    background: linear-gradient(135deg, #e6c200, #ffb6c1, #c6a0f6, #a3d8f4);
-    background-size: 300% 300%;
-    color: #fff;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.botones a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.botones:hover {
-    background-position: 100% 0;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #ffb6c1, 0 0 40px #c6a0f6, 0 0 60px #e6c200;
-}
-
-/* Efecto brillante que pasa por encima */
-.botones::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.4);
-    transform: skewX(-25deg);
-}
-
-.botones:hover::after {
-    animation: shine 0.8s forwards;
-}
-
-@keyframes shine {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 200%;
-    }
-}
-
         
         .greetings {
-            font-size: 7rem;
             font-weight: 900;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
         }
         
-       .greetings span {
-    font-size: 8rem;
-    font-weight: bold;
-    animation: glow 4s infinite ease-in-out;
-    display: inline-block;
-}
-
+        .greetings span {
+            font-weight: bold;
+            animation: glow 4s infinite ease-in-out;
+            display: inline-block;
+        }
         
-@keyframes glow {
-    0% {
-        color: #e6c200; /* dorado suave */
-        text-shadow: 0 0 8px #e6c200, 0 0 20px #e6c200, 0 0 40px #e6c200;
-    }
-    25% {
-        color: #ffb6c1; /* rosado pastel */
-        text-shadow: 0 0 8px #ffb6c1, 0 0 20px #ffb6c1, 0 0 40px #ffb6c1;
-    }
-    50% {
-        color: #c6a0f6; /* violeta suave */
-        text-shadow: 0 0 8px #c6a0f6, 0 0 20px #c6a0f6, 0 0 40px #c6a0f6;
-    }
-    75% {
-        color: #a3d8f4; /* celeste bajito */
-        text-shadow: 0 0 8px #a3d8f4, 0 0 20px #a3d8f4, 0 0 40px #a3d8f4;
-    }
-    100% {
-        color: #e6c200; /* vuelve al dorado suave */
-        text-shadow: 0 0 8px #e6c200, 0 0 20px #e6c200, 0 0 40px #e6c200;
-    }
-}
-
+        @keyframes glow {
+            0% {
+                color: #e6c200;
+                text-shadow: 0 0 8px #e6c200, 0 0 20px #e6c200, 0 0 40px #e6c200;
+            }
+            25% {
+                color: #ffb6c1;
+                text-shadow: 0 0 8px #ffb6c1, 0 0 20px #ffb6c1, 0 0 40px #ffb6c1;
+            }
+            50% {
+                color: #c6a0f6;
+                text-shadow: 0 0 8px #c6a0f6, 0 0 20px #c6a0f6, 0 0 40px #c6a0f6;
+            }
+            75% {
+                color: #a3d8f4;
+                text-shadow: 0 0 8px #a3d8f4, 0 0 20px #a3d8f4, 0 0 40px #a3d8f4;
+            }
+            100% {
+                color: #e6c200;
+                text-shadow: 0 0 8px #e6c200, 0 0 20px #e6c200, 0 0 40px #e6c200;
+            }
+        }
         
-        .greetings>span:nth-child(2) {
+        .greetings > span:nth-child(1) {
+            animation-delay: .1s;
+        }
+        .greetings > span:nth-child(2) {
             animation-delay: .2s;
         }
-        
-        .greetings>span:nth-child(3) {
+        .greetings > span:nth-child(3) {
+            animation-delay: .3s;
+        }
+        .greetings > span:nth-child(4) {
             animation-delay: .4s;
         }
-        
-        .greetings>span:nth-child(4) {
+        .greetings > span:nth-child(5) {
+            animation-delay: .5s;
+        }
+        .greetings > span:nth-child(6) {
             animation-delay: .6s;
         }
-        
-        .greetings>span:nth-child(5) {
-            animation-delay: .8s;
+        .greetings > span:nth-child(7) {
+            animation-delay: .7s;
         }
         
         .description {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         
-        .button a {
+        .button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .botones {
+            background: linear-gradient(135deg, #e6c200, #ffb6c1, #c6a0f6, #a3d8f4);
+            background-size: 300% 300%;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+        }
+        
+        .botones a {
             text-decoration: none;
-            font-size: 1rem;
-            color: #111;
+            color: #fff;
+            display: block;
+            width: 100%;
+            height: 100%;
         }
         
-        @media screen and (max-width:574px) {
-            .greetings {
-                display: block;
-                font-size: 4rem;
-                font-weight: 800;
-                text-align: center;
+        .botones:hover {
+            background-position: 100% 0;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ffb6c1, 0 0 40px #c6a0f6, 0 0 60px #e6c200;
+        }
+        
+        /* Efecto brillante que pasa por encima */
+        .botones::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: skewX(-25deg);
+        }
+        
+        .botones:hover::after {
+            animation: shine 0.8s forwards;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 200%;
+            }
+        }
+        
+        /* Media queries para responsividad */
+        @media screen and (min-width: 1200px) {
+            .greetings span {
+                font-size: 6rem;
+            }
+        }
+        
+        @media screen and (max-width: 1199px) and (min-width: 992px) {
+            .greetings span {
+                font-size: 5.5rem;
+            }
+        }
+        
+        @media screen and (max-width: 991px) and (min-width: 768px) {
+            .greetings span {
+                font-size: 5rem;
+            }
+        }
+        
+        @media screen and (max-width: 767px) and (min-width: 576px) {
+            .greetings span {
+                font-size: 4.5rem;
             }
             .description {
-                font-size: 2rem;
+                font-size: 1.3rem;
             }
-            .button a {
+        }
+        
+        @media screen and (max-width: 575px) {
+            .greetings {
+                gap: 3px;
+            }
+            
+            .greetings span {
+                font-size: 3.2rem;
+            }
+            
+            .description {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+            
+            .botones {
+                padding: 12px 30px;
                 font-size: 1rem;
+                min-width: 180px;
+            }
+            
+            body {
+                padding: 15px;
+                justify-content: flex-start;
+                padding-top: 40px;
+            }
+        }
+        
+        @media screen and (max-width: 380px) {
+            .greetings span {
+                font-size: 2.8rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .botones {
+                padding: 10px 25px;
+                min-width: 160px;
             }
         }
     </style>
@@ -246,20 +310,20 @@
     <div class="stars" id="stars"></div>
     
     <div class="content">
-<div class="greetings">
-    <span>M</span>
-    <span>i</span>
-    <span>&nbsp;</span>
-    <span>a</span>
-    <span>m</span>
-    <span>o</span>
-    <span>r</span>
-</div>
-
+        <div class="greetings">
+            <span>M</span>
+            <span>i</span>
+            <span>&nbsp;</span>
+            <span>a</span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+        </div>
 
         <div class="description">
             <span>ESTE DETALLE ES PARA TI :)</span>
         </div>
+        
         <div class="button">
             <button class="botones">
                 <a href="flores.html" style="color: #fff;">CLICK AQUÍ</a>
