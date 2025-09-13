@@ -2033,7 +2033,7 @@ body {
     }
     
     .message-text {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       margin-bottom: 20px;
       text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
       font-family: 'Dancing Script', cursive;
@@ -2086,7 +2086,7 @@ body {
   }
 
   .message-text {
-    font-size: 1.2rem; /* un poco más chico pero aún grande */
+    font-size: 1.6rem; /* un poco más chico pero aún grande */
     line-height: 1.3;
   }
 
