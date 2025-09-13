@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Flowers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+        
+        * {
+            font-family: 'Poppins', cursive;
+        }
+        
+        body {
+            color: azure;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #000000, #0a1435, #000000);
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Capa de estrellas */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+        
+        /* Estrellas de diferentes tamaños y animaciones */
+        .star.small {
+            width: 1px;
+            height: 1px;
+        }
+        
+        .star.medium {
+            width: 2px;
+            height: 2px;
+        }
+        
+        .star.large {
+            width: 3px;
+            height: 3px;
+        }
+        
+        /* Efecto de brillo para algunas estrellas */
+        .star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300%;
+            height: 300%;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            animation: glow linear infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.botones {
+    background: linear-gradient(135deg, #e6c200, #ffb6c1, #c6a0f6, #a3d8f4);
+    background-size: 300% 300%;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.botones a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.botones:hover {
+    background-position: 100% 0;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ffb6c1, 0 0 40px #c6a0f6, 0 0 60px #e6c200;
+}
+
+/* Efecto brillante que pasa por encima */
+.botones::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-25deg);
+}
+
+.botones:hover::after {
+    animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+        
+        .greetings {
+            font-size: 7rem;
+            font-weight: 900;
+        }
+        
+       .greetings span {
+    font-size: 8rem;
+    font-weight: bold;
+    animation: glow 4s infinite ease-in-out;
+    display: inline-block;
+}
+
+        
+@keyframes glow {
+    0% {
+        color: #e6c200; /* dorado suave */
+        text-shadow: 0 0 8px #e6c200, 0 0 20px #e6c200, 0 0 40px #e6c200;
+    }
+    25% {
+        color: #ffb6c1; /* rosado pastel */
+        text-shadow: 0 0 8px #ffb6c1, 0 0 20px #ffb6c1, 0 0 40px #ffb6c1;
+    }
+    50% {
+        color: #c6a0f6; /* violeta suave */
+        text-shadow: 0 0 8px #c6a0f6, 0 0 20px #c6a0f6, 0 0 40px #c6a0f6;
+    }
+    75% {
+        color: #a3d8f4; /* celeste bajito */
+        text-shadow: 0 0 8px #a3d8f4, 0 0 20px #a3d8f4, 0 0 40px #a3d8f4;
+    }
+    100% {
+        color: #e6c200; /* vuelve al dorado suave */
+        text-shadow: 0 0 8px #e6c200, 0 0 20px #e6c200, 0 0 40px #e6c200;
+    }
+}
+
+        
+        .greetings>span:nth-child(2) {
+            animation-delay: .2s;
+        }
+        
+        .greetings>span:nth-child(3) {
+            animation-delay: .4s;
+        }
+        
+        .greetings>span:nth-child(4) {
+            animation-delay: .6s;
+        }
+        
+        .greetings>span:nth-child(5) {
+            animation-delay: .8s;
+        }
+        
+        .description {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .button a {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #111;
+        }
+        
+        @media screen and (max-width:574px) {
+            .greetings {
+                display: block;
+                font-size: 4rem;
+                font-weight: 800;
+                text-align: center;
+            }
+            .description {
+                font-size: 2rem;
+            }
+            .button a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="content">
+<div class="greetings">
+    <span>M</span>
+    <span>i</span>
+    <span>&nbsp;</span>
+    <span>a</span>
+    <span>m</span>
+    <span>o</span>
+    <span>r</span>
+</div>
+
+
+        <div class="description">
+            <span>ESTE DETALLE ES PARA TI :)</span>
+        </div>
+        <div class="button">
+            <button class="botones">
+                <a href="flores.html" style="color: #fff;">CLICK AQUÍ</a>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Crear estrellas dinámicamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 300; // Número de estrellas
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Asignar tamaño aleatorio
+                const sizes = ['small', 'medium', 'large'];
+                const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+                star.classList.add(randomSize);
+                
+                // Posición aleatoria
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Duración de animación aleatoria
+                const duration = 2 + Math.random() * 8;
+                star.style.animationDuration = `${duration}s`;
+                
+                // Añadir efecto de brillo a algunas estrellas
+                if (Math.random() > 0.7) {
+                    star.style.animationDuration = `${duration * 0.5}s`;
+                }
+                
+                // Retraso aleatorio para que no todas parpadeen a la vez
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
+</body>
+
+</html>
